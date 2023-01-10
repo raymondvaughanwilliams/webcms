@@ -1,0 +1,285 @@
+<!-- =========
+
+	Template Name: Play
+	Author: UIdeck
+	Author URI: https://uideck.com/
+	Support: https://uideck.com/support/
+	Version: 1.1
+
+========== -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{about.title}}</title>
+
+    <!-- Primary Meta Tags -->
+<meta name="title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
+<meta name="description" content="Play - Free Open Source HTML Bootstrap Template by UIdeck Team">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://uideck.com/play/">
+<meta property="og:title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
+<meta property="og:description" content="Play - Free Open Source HTML Bootstrap Template by UIdeck Team">
+<meta property="og:image" content="https://uideck.com/wp-content/uploads/2021/09/play-meta-bs.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://uideck.com/play/">
+<meta property="twitter:title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
+<meta property="twitter:description" content="Play - Free Open Source HTML Bootstrap Template by UIdeck Team">
+<meta property="twitter:image" content="https://uideck.com/wp-content/uploads/2021/09/play-meta-bs.jpg">
+
+    <!--====== Favicon Icon ======-->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/svg"
+    />
+
+    <!-- ===== All CSS files ===== -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/animate.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/lineicons.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/ud-styles.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='featureassets/css/style.css') }}">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header class="ud-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="{{ url_for('static',filename='images/logo/logo.svg') }}" alt="Logo" />
+              </a>
+              <button class="navbar-toggler">
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+                <span class="toggler-icon"> </span>
+              </button>
+
+              <div class="navbar-collapse">
+                <ul id="nav" class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#home">Home</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#pricing">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#team">Team</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#contact">Contact</a>
+                  </li>
+                  <li class="nav-item nav-item-has-children">
+                    <a href="javascript:void(0)"> Pages </a>
+                    <ul class="ud-submenu">
+                      <li class="ud-submenu-item">
+                        <a href="about.html" class="ud-submenu-link">
+                          About Page
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="pricing.html" class="ud-submenu-link">
+                          Pricing Page
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="contact.html" class="ud-submenu-link">
+                          Contact Page
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="blog.html" class="ud-submenu-link">
+                          Blog Grid Page
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="blog-details.html" class="ud-submenu-link">
+                          Blog Details Page
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="{{ url_for('users.login') }}" class="ud-submenu-link">
+                          Sign In Page
+                        </a>
+                      </li>
+                      <li class="ud-submenu-item">
+                        <a href="404.html" class="ud-submenu-link">404 Page</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="navbar-btn d-none d-sm-inline-block">
+                <a href="login.html" class="ud-main-btn ud-login-btn">
+                  Sign In
+                </a>
+                <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+                  Sign Up
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ====== Header End ====== -->
+
+   <div class="content">
+    <!-- ====== Features Start ====== -->
+    {%if feature.image1 %}
+           <div class="cycle_section layout_padding">
+            <div class="container">
+               <h1 class="cycle_taital">{{feature.title}}</h1>
+               <p class="cycle_text">{{feature.wtext}} </p>
+               <div class="cycle_section_2 layout_padding">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="box_main">
+                           <h6 class="number_text">01</h6>
+                           <div class="image_2 shadow-lg"><img src="{{feature.image1}}"></div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <h1 class="cycles_text"></h1>
+                        <p class="lorem_text">{{feature.text1}}</p>
+                       
+                     </div>
+                  </div>
+               </div>
+               {%endif%}
+               <br>
+               {%if feature.image2 %}
+               <div class="cycle_section_3 layout_padding">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h1 class="cycles_text"></h1>
+                        <p class="lorem_text">{{feature.text2}}</p>
+                       
+                     </div>
+                     <div class="col-md-6">
+                        <div class="box_main_3">
+                           <h6 class="number_text_2">02</h6>
+                           <div class="image_2 shadow-lg"><img src="{{feature.image2}}"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% endif %}
+
+               {%if feature.image3 %}
+               <div class="cycle_section_3 layout_padding">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h1 class="cycles_text"></h1>
+                        <p class="lorem_text">{{feature.text3}}</p>
+                       
+                     </div>
+                     <div class="col-md-6">
+                        <div class="box_main_3">
+                           <h6 class="number_text_2">03</h6>
+                           <div class="image_2 shadow-lg"><img src="{{feature.image3}}"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% endif %}
+               
+               <div class="read_btn_main">
+                  <div class="read_bt"><a href="#">Read More</a></div>
+               </div>
+            </div>
+         </div>
+  
+
+         <section class="about-us py-5 " id="about-us">
+          <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6">
+              <h1 class='text-success'>Welcome!</h1>
+              <h2>Know More About Us</h2>
+              <hr>
+              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etae magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <button type="button" class="btn btn-success">Let's Know More</button>
+      
+          </div>
+          <div class="col-md-6">
+              <img src="{{feature.image1}}"alt="">
+          </div>
+        </div>
+      </div>
+      </section>
+
+    <!-- ====== All Javascript Files ====== -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}">
+
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      // ==== for menu scroll
+      const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+      pageLink.forEach((elem) => {
+        elem.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.querySelector(elem.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            offsetTop: 1 - 60,
+          });
+        });
+      });
+
+      // section menu active
+      function onScroll(event) {
+        const sections = document.querySelectorAll(".ud-menu-scroll");
+        const scrollPos =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop;
+
+        for (let i = 0; i < sections.length; i++) {
+          const currLink = sections[i];
+          const val = currLink.getAttribute("href");
+          const refElement = document.querySelector(val);
+          const scrollTopMinus = scrollPos + 73;
+          if (
+            refElement.offsetTop <= scrollTopMinus &&
+            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+          ) {
+            document
+              .querySelector(".ud-menu-scroll")
+              .classList.remove("active");
+            currLink.classList.add("active");
+          } else {
+            currLink.classList.remove("active");
+          }
+        }
+      }
+
+      window.document.addEventListener("scroll", onScroll);
+    </script>
+  </body>
+</html>

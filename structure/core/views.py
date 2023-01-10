@@ -17,7 +17,7 @@ from structure.appearance.views import appearance
 from structure.models import Appearance
 core = Blueprint('core',__name__)
 
-@core.route('/')
+@core.route('/dash')
 @login_required
 def index():
     '''
@@ -48,7 +48,7 @@ def base():
     return render_template('base.html',about=about)
 
 
-@core.route('/hmsui')
+@core.route('/')
 def hmsui():
     '''
     Example view of any other "core" page. Such as a info page, about page,
@@ -56,7 +56,7 @@ def hmsui():
     '''
 
     page = request.args.get('page', 1, type=int)
-    web_features = WebFeature.query.order_by(WebFeature.date.desc()).paginate(page=page, per_page=10)
+    web_features = WebFeature.query.filter_by(mainpage="yes").order_by(WebFeature.date.desc()).paginate(page=page, per_page=10)
     about = About.query.get(1)
     price = Price.query.all()
     faq = Faq.query.all()
@@ -71,7 +71,11 @@ def hmsui():
     # services=[]
     # service= serv.split(',')
     # services.append(service)
-    return render_template('base2.html',web_features=web_features, about=about,pricing=price,faq=faq,testimonial=testimonial,team=team,serv=serv,Blockform=Blockform,appearance=appearance,Appearanceform=Appearanceform,block=block)
+    return render_template('main.html',web_features=web_features, about=about,pricing=price,faq=faq,testimonial=testimonial,team=team,serv=serv,Blockform=Blockform,appearance=appearance,Appearanceform=Appearanceform,block=block)
+
+
+
+
 
 
 
@@ -163,3 +167,22 @@ def editui():
     # services.append(service)
     return render_template('editui.html',block = block,web_features=web_features,appearancef =appearancef,about=about,webfeatureform = Webfeatureform,teammateform=Teammateform,faqform = Faqform,testimonialform=Testimonialform,priceform=Pricingform,aboutform=Aboutform,team=team,pricing=price,faq=faq,testimonial=testimonial,templist=templist,emplist=emplist,blockform=Blockform,appearanceform=Appearanceform,appearance=appearance)
     # return render_template('info.html',context=context,faq=faq)
+
+
+
+@core.route('/<int:web_feature_id>')
+def web_feature(web_feature_id):
+    about = About.query.get(1)
+
+    # grab the requested blog post by id number or return 404
+    web_feature = WebFeature.query.get_or_404(web_feature_id)
+    return render_template('feature.html',title=web_feature.title,
+                            date=web_feature.date,web_feature=web_feature,about=about,feature=web_feature
+    )
+
+
+@core.route('/features')
+def features():
+    features = WebFeature.query.all()
+    about = About.query.get(1)
+    return render_template('features.html',features=features,about=about)

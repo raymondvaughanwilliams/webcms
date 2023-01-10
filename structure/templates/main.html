@@ -1,0 +1,241 @@
+{% extends "nav.html" %}
+{% block content %}
+
+    <!-- ====== Header End ====== -->
+
+    <!-- ====== Hero Start ====== -->
+    <section class="ud-hero" id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
+              <h1 class="ud-hero-title">
+                {{ about.title }}
+              </h1>
+              <p class="ud-hero-desc">
+{{about.subtitle}}            </p>
+              <ul class="ud-hero-buttons">
+               <!----<li>
+                  <a href="https://links.uideck.com/play-bootstrap-download" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                    Download Now
+                  </a>
+                </li>-->
+                <li>
+                  <a href="" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-link-btn">
+                    Learn More <i class="lni lni-arrow-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+         
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Hero End ====== -->
+<div class="content">
+    <!-- ====== Features Start ====== -->
+    <section id="features" class="ud-features">
+      <div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% for blocks in block%}
+{% if blocks.status =='active' and blocks.id==1%}
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title">
+              <h2>{{about.feature_subtitle}}</h2>
+              <p>
+                {{about.feature_paragraph}}
+              </p>
+            </div>
+          </div>
+        </div>
+<div class="row">
+
+        {% for web_feature in web_features.items %}
+
+
+
+
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-feature-icon">
+                <i class="lni lni-gift"></i>
+              </div>
+              <div class="ud-feature-content">
+                <h2 ><a class="ud-feature-title" style="color: #04142c;" href="  {{ url_for('core.web_feature', web_feature_id=web_feature.id) }}">{{ web_feature.title }}</a></h2>
+                <p class="ud-feature-desc">
+                 {{ web_feature.wtext[:30] }}...
+                </p>
+                <a href="{{ url_for('core.web_feature', web_feature_id=web_feature.id) }}" class="btn btn-primary" style="background-color: #04142c;">Read Feature</a>
+              </div>
+            </div>
+          </div>
+  
+
+   {% endfor %}
+   <div>
+   <a href="{{ url_for('core.features') }}" class="btn btn-primary " style="background-color: #04142c;">View All Features</a>
+  </div>
+
+   {% endif %}
+    {% endfor %}
+     
+    <!-- ====== Features End ====== -->
+
+    <!-- ====== About Start ====== -->
+    {% for blocks in block%}
+    {% if blocks.status =='active' and blocks.id==2%}
+    <section id="about" class="ud-about" style="margin-top: 150px;"    >
+      <div class="container">
+        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
+          <div class="ud-about-content-wrapper">
+            <div class="ud-about-content">
+              <span class="tag">About Us</span>
+              <h2>{{about.about_subtitle}}</h2>
+              
+              <p>
+                {{about.atext}}
+              </p>
+
+             
+            </div>
+          </div>
+          <div class="ud-about-image">
+            <img style="height: 700px;width: 500px;object-fit: cover;" src="{{ url_for('static',filename='images/hosp2.png') }}" />
+           
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Pricing Start ====== -->
+
+    <section id="pricing" class="ud-pricing" style="margin-top: 150px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <span>Pricing</span>
+              <h2>Our Pricing Plans</h2>
+              <p>
+
+              
+              </p>
+            </div>
+          </div>
+       
+        {% for price in pricing %}
+        <div class="col-md-5 col-sm-5">
+          <div class="pricingTable">
+              <div class="pricing_heading">
+                  <h3 class="title" style="color: white;">{{price.title}}</h3>
+                  <span class="value" style="color: white;">
+                      {{price.amount}}
+                      <span class="month" style="color: white;">was $10,000({{price.discount}} DISCOUNT)</span>
+                  </span>
+              </div>
+              <div class="content">
+                  <ul>
+                    {% set list1 = price.features.split(',') %}
+                    {% for item in list1 %}
+                      <li>{{item}}</li>
+                      {%endfor%}
+                     
+                  </ul>
+                 
+              </div>
+          </div>
+        </div>
+  
+      {%endfor%}
+      </div>
+      </section>
+<br>
+<br>
+        
+    <!-- ====== FAQ Start ====== -->
+    {% for blocks in block%}
+    {% if blocks.status =='active' and blocks.id==3%}
+    <section id="faq" class="ud-faq" style="margin-top: 150px;">
+      <div class="shape">
+      <img  src="{{ url_for('static',filename='images/faq/shape.svg') }}" >
+
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title text-center mx-auto">
+              <span>{{about.faq_title}}</span>
+              <h2>{{about.faq_subtitle}}</h2>
+              <p>
+                {{about.faq_paragraph}}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+            {% for faqs in faq %}
+            <div class="col-lg-6">
+
+            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".1s">
+              <div class="accordion">
+                <button
+                  class="ud-faq-btn collapsed"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapse{{faqs.id}}"
+                >
+                  <span class="icon flex-shrink-0">
+                    <i class="lni lni-chevron-down"></i>
+                  </span>
+                  <span>{{faqs.question}}</span>
+                </button>
+                <div id="collapse{{faqs.id}}" class="accordion-collapse collapse">
+                  <div class="ud-faq-body">
+                   {{faqs.answer}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    <!-- ====== FAQ End ====== -->
+
+ {% endblock %}

@@ -210,6 +210,8 @@ p {
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+  background: #04142c;
+
 }
 
 .sticky {
@@ -506,7 +508,8 @@ p {
 
 /* ===== Hero CSS ===== */
 .ud-hero {
-  background: var(--primary-color);
+  background: url(/static/images/hospout2.png);
+  object-fit: cover;
   padding-top: 180px;
 }
 
@@ -728,7 +731,7 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 14px;
-  background: var(--primary-color);
+  background: #04142c;
   font-size: 32px;
   color: var(--white);
   position: relative;
@@ -745,7 +748,7 @@ p {
   top: 0;
   left: 0;
   border-radius: 14px;
-  background: var(--primary-color);
+  background: #04142c;
   opacity: 0.2;
   z-index: -1;
   -webkit-transform: rotate(23deg);
@@ -776,11 +779,11 @@ p {
 
 .ud-single-feature .ud-feature-link {
   font-weight: 500;
-  color: var(--body-color);
+  color: #04142c;
 }
 
 .ud-single-feature .ud-feature-link:hover {
-  color: var(--primary-color);
+  color: #04142c;
 }
 
 /* ===== About CSS ===== */
@@ -1311,6 +1314,8 @@ p {
 .ud-contact {
   padding: 120px 0px;
   position: relative;
+  color: white;
+
 }
 
 @media (max-width: 767px) {
@@ -1327,7 +1332,8 @@ p {
   top: 0;
   left: 0;
   height: 50%;
-  background: #f3f4fe;
+  background: #04142c;
+  color: white;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -2730,3 +2736,185 @@ p {
       }
   }}
 /*# sourceMappingURL=ud-styles.css.map */
+
+
+.pricingTable{
+  margin-top:30px;
+  text-align: center;
+  position: relative;
+}
+.pricingTable .pricing_heading:after{
+  content: "";
+  width: 36px;
+  height: 29.5%;
+  background:#04142c;
+  position: absolute;
+  top: -1px;
+  right: 0;
+  z-index: 2;
+  transform: skewY(45deg) translateY(18px);
+  transition: all 0.4s ease 0s;
+}
+.pricingTable .title{
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #000;
+  text-transform: uppercase;
+  background: #04142c;
+  padding: 15px 0 0;
+  margin: 0 35px 0 0;
+  transition: all 0.4s ease 0s;
+}
+.pricingTable .value{
+  display: block;
+  font-size: 35px;
+  font-weight: 700;
+  color: #000;
+  background: #04142c;
+  padding: 5px 0 10px;
+  margin: 0 35px 0 0;
+  transition: all 0.4s ease 0s;
+}
+.pricingTable:hover .title,
+.pricingTable:hover .value{
+  color: #fff;
+}
+.pricingTable .month{
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+}
+.pricingTable .content{
+  border-left: 1px solid #f2f2f2;
+  position: relative;
+}
+.pricingTable .content:after{
+  content: "";
+  width: 35px;
+  height: 100%;
+  background: #f8f8f8;
+  box-shadow: 9px 9px 20px #ddd;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transform: skewY(-45deg) translateY(-18px);
+  transition: all 0.4s ease 0s;
+}
+.pricingTable .content ul{
+  padding: 0;
+  margin: 0 35px 0 0;
+  list-style: none;
+  background: #fff;
+}
+.pricingTable .content ul li{
+  display: block;
+  font-size: 15px;
+  color: #333;
+  line-height: 23px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.pricingTable .link{
+  background: #fff;
+  padding: 20px 0;
+  margin-right: 35px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.pricingTable .link a{
+  display: inline-block;
+  padding: 9px 20px;
+  font-weight: 700;
+  color: ##04142c;
+  text-transform: uppercase;
+  border: 1px solid #04142c;
+  background: #fff;
+  transition: all 0.4s ease 0s;
+}
+.pricingTable:hover .link a{
+  color: #fff;
+  background: #06D6A0;
+  border: 1px solid #06D6A0;
+}
+.pricingTable:hover .pricing_heading:after,
+.pricingTable:hover .title,
+.pricingTable:hover .value{
+  background:#06D6A0;
+}
+@media only screen and (max-width: 990px){
+  .pricingTable{
+      margin-bottom: 35px;
+  }
+}
+
+.content{
+  /* transform: scale(0.75);
+  transform-origin: 1; */
+  width: 75%;
+  margin: auto;
+}
+
+.service-22 {
+  font-family: "Montserrat", sans-serif;
+	color: #8d97ad;
+  font-weight: 300;
+}
+
+.service-22 h1, .service-22 h2, .service-22 h3, .service-22 h4, .service-22 h5, .service-22 h6 {
+  color: #3e4555;
+}
+
+.service-22 .font-weight-medium {
+	font-weight: 500;
+}
+
+.service-22 .wrap-service-22 {
+  margin-top: 60px;
+}
+
+.service-22 .wrap-service-22 .text-box {
+  padding: 0 30px;
+}
+
+.service-22 .wrap-service-22 .text-box h3 {
+  margin: 10px 0 25px 0;
+}
+
+.service-22 .text-info {
+	color: #188ef4 !important;
+}
+
+.service-22 .text-megna {
+	color: #1dc8cd;
+}
+
+.service-22 .img-shadow {
+    -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.3);
+    box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.3);
+}
+
+.service-22 .btn-info-gradiant {
+		background: #188ef4;
+    background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+    background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
+}
+
+.service-22 .btn-info-gradiant:hover {
+		background: #316ce8;
+    background: -webkit-linear-gradient(legacy-direction(to right), #316ce8 0%, #188ef4 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#316ce8), to(#188ef4));
+    background: -webkit-linear-gradient(left, #316ce8 0%, #188ef4 100%);
+    background: -o-linear-gradient(left, #316ce8 0%, #188ef4 100%);
+    background: linear-gradient(to right, #316ce8 0%, #188ef4 100%);
+}
+
+.service-22 .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}

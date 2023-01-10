@@ -35,6 +35,13 @@ class WebFeature(db.Model):
     date = db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
     title = db.Column(db.String(140),nullable=False)
     wtext = db.Column(db.Text,nullable=False)
+    mainpage= db.Column(db.String(10),nullable=True,default="no")
+    image1= db.Column(db.String(100),nullable=True)
+    image2= db.Column(db.String(100),nullable=True)
+    image3= db.Column(db.String(100),nullable=True)
+    text1= db.Column(db.String(255),nullable=True)
+    text2= db.Column(db.String(255),nullable=True)
+    text3= db.Column(db.String(255),nullable=True)
 
 
     def __init__(self,title,wtext):
@@ -113,6 +120,7 @@ class Price(db.Model):
     title = db.Column(db.String(140),nullable=False)
     amount = db.Column(db.Text,nullable=False)
     features = db.Column(db.Text(64),nullable=False,default='default_profile.png')
+    discount = db.Column(db.String(64),default="0%",nullable=True)
 
     def __init__(self,title,amount,features):
         self.title = title
