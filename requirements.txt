@@ -38,5 +38,5 @@ Werkzeug==2.0.2
 WTForms==2.3.3
 zipp==3.6.0
 python-dotenv == 0.21.0
-gunicorn == 7.3.1
+gunicorn == 20.1.0
 flask-reuploaded
