@@ -4,8 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from sqlalchemy import MetaData
+from dotenv import load_dotenv
+from flask_mail import Message,Mail 
+
 app = Flask(__name__)
 
+load_dotenv()
 
 app.config['SECRET_KEY'] = 'asecretkey'
 ############################
@@ -39,7 +43,12 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
 
-
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = "raymondvaughanwilliams@gmail.com"
+app.config["MAIL_PASSWORD"] = os.environ.get('MAIL_PASSWORD')
+mail= Mail(app)
 
 ##################################################
 

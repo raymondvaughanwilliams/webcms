@@ -1,5 +1,5 @@
 from flask import render_template,request,Blueprint,redirect,url_for
-from structure.models import User,About,Price, WebFeature,Faq,Testimonial,Team,Appearance,Block,app
+from structure.models import User,About,Price, WebFeature,Faq,Testimonial,Team,Appearance,Block
 # from structure.team.views import team
 from structure.web_features.forms import WebFeatureForm
 from structure.team.forms import UpdateTeamForm
@@ -16,14 +16,11 @@ from structure.block.forms import BlockForm
 from structure.appearance.views import appearance
 from structure.models import Appearance
 from structure.core.forms import ContactForm
+from structure import app,mail
 from flask_mail import Message,Mail 
+
 core = Blueprint('core',__name__)
 
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = "raymondvaughanwilliams@gmail.com"
-app.config["MAIL_PASSWORD"] = "mowfdigzaouywugg"
 
 
 @core.route('/dash')
@@ -213,7 +210,7 @@ def contact_us():
         
         # Send email using Flask-Mail
         # (Assuming Flask-Mail is configured and imported)
-        mail = Mail(app)
+        
         msg = Message('Contact Us Request',
                         sender=email,
                         recipients=['raymondvaughanwilliams@gmail.com'])
