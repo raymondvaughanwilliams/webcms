@@ -1,5 +1,5 @@
-from flask import render_template,request,Blueprint
-from structure.models import User,About,Price, WebFeature,Faq,Testimonial,Team,Appearance,Block
+from flask import render_template,request,Blueprint,redirect,url_for
+from structure.models import User,About,Price, WebFeature,Faq,Testimonial,Team,Appearance,Block,app
 # from structure.team.views import team
 from structure.web_features.forms import WebFeatureForm
 from structure.team.forms import UpdateTeamForm
@@ -15,7 +15,16 @@ from structure.appearance.forms import AppearanceForm
 from structure.block.forms import BlockForm
 from structure.appearance.views import appearance
 from structure.models import Appearance
+from structure.core.forms import ContactForm
+from flask_mail import Message,Mail 
 core = Blueprint('core',__name__)
+
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = "raymondvaughanwilliams@gmail.com"
+app.config["MAIL_PASSWORD"] = "mowfdigzaouywugg"
+
 
 @core.route('/dash')
 @login_required
@@ -54,6 +63,7 @@ def hmsui():
     Example view of any other "core" page. Such as a info page, about page,
     contact page. Any page that doesn't really sync with one of the models.
     '''
+    form = ContactForm()
 
     page = request.args.get('page', 1, type=int)
     web_features = WebFeature.query.filter_by(mainpage="yes").order_by(WebFeature.date.desc()).paginate(page=page, per_page=10)
@@ -71,7 +81,7 @@ def hmsui():
     # services=[]
     # service= serv.split(',')
     # services.append(service)
-    return render_template('main.html',web_features=web_features, about=about,pricing=price,faq=faq,testimonial=testimonial,team=team,serv=serv,Blockform=Blockform,appearance=appearance,Appearanceform=Appearanceform,block=block)
+    return render_template('main.html',web_features=web_features, about=about,pricing=price,faq=faq,testimonial=testimonial,team=team,serv=serv,Blockform=Blockform,appearance=appearance,Appearanceform=Appearanceform,block=block,form=form)
 
 
 
@@ -173,10 +183,11 @@ def editui():
 @core.route('/<int:web_feature_id>')
 def web_feature(web_feature_id):
     about = About.query.get(1)
+    form=ContactForm()
 
     # grab the requested blog post by id number or return 404
     web_feature = WebFeature.query.get_or_404(web_feature_id)
-    return render_template('feature.html',title=web_feature.title,
+    return render_template('feature.html',title=web_feature.title,form=form,
                             date=web_feature.date,web_feature=web_feature,about=about,feature=web_feature
     )
 
@@ -185,4 +196,29 @@ def web_feature(web_feature_id):
 def features():
     features = WebFeature.query.all()
     about = About.query.get(1)
-    return render_template('features.html',features=features,about=about)
+    form = ContactForm()
+    return render_template('features.html',features=features,about=about,form=form)
+
+
+@core.route('/contact-us',methods=['GET', 'POST'])
+def contact_us():
+    form = ContactForm()
+    if request.method == 'POST':
+        print("ajk")
+  
+        
+        name = form.name.data
+        text = form.text.data
+        email = form.email.data
+        
+        # Send email using Flask-Mail
+        # (Assuming Flask-Mail is configured and imported)
+        mail = Mail(app)
+        msg = Message('Contact Us Request',
+                        sender=email,
+                        recipients=['raymondvaughanwilliams@gmail.com'])
+        msg.body = f"Name: {name}\nEmail: {email}\nMessage: {text}"
+        mail.send(msg)
+        return redirect(url_for('core.hmsui'))
+
+            
