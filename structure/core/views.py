@@ -219,3 +219,7 @@ def contact_us():
         return redirect(url_for('core.hmsui'))
 
             
+
+
+# 683962698951-8b7ktujbsrsou5t9mo3qs89dquj8h9ke.apps.googleusercontent.com
+# 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

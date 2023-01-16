@@ -37,7 +37,7 @@
       </div>
     </section>
     <!-- ====== Hero End ====== -->
-<div class="content">
+<div class="container-fluid col-lg-10 col-md-10 col-xs-12">
     <!-- ====== Features Start ====== -->
     <section id="features" class="ud-features">
       <div class="container">
@@ -113,7 +113,7 @@
     <!-- ====== About Start ====== -->
     {% for blocks in block%}
     {% if blocks.status =='active' and blocks.id==2%}
-    <section id="about" class="ud-about" style="margin-top: 150px;"    >
+    <section id="about" class="ud-about col-xs-12" style="margin-top: 150px;"    >
       <div class="container">
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
@@ -128,8 +128,8 @@
              
             </div>
           </div>
-          <div class="ud-about-image">
-            <img style="height: 700px;width: 500px;object-fit: cover;" src="{{ url_for('static',filename='images/hosp2.png') }}" />
+          <div class="ud-about-image img-fluid">
+            <img style="height: 100%;width: 100%;object-fit: cover;" src="{{ url_for('static',filename='images/hosp2.png') }}" />
            
           </div>
         </div>
@@ -142,7 +142,7 @@
     <!-- ====== Pricing Start ====== -->
 
     <section id="pricing" class="ud-pricing" style="margin-top: 150px;">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title mx-auto text-center">
@@ -192,9 +192,9 @@
       <img  src="{{ url_for('static',filename='images/faq/shape.svg') }}" >
 
       </div>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12 col-xs-12">
             <div class="ud-section-title text-center mx-auto">
               <span>{{about.faq_title}}</span>
               <h2>{{about.faq_subtitle}}</h2>
